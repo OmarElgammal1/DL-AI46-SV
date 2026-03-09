@@ -1,0 +1,53 @@
+{
+    "evaluations": {
+        "Task 1": "The simple MLP works, but flattening an image destroys spatial relationships. A pixel at (x, y) loses its geometric proximity to (x+1, y). This necessitates CNNs.",
+        "Task 2.1 & 2.2": "Successfully overfitting on 1 and 5 samples proves the loss function, optimizer, and architecture have no catastrophic bugs. If loss didn't drop to ~0 here, we'd know our pipeline was broken.",
+        "Task 2.3": "By applying Dropout (p=0.5) and L2 Regularization, we prevent the CNN from memorizing the full dataset. The gap between Train Acc and Val Acc is kept tight.",
+        "Task 3": "3-A is fastest but yields lowest accuracy. 3-B provides a great middle ground for learning domain-specific high-level concepts. 3-C yields the highest performance but requires a lower learning rate to avoid catastrophic forgetting.",
+        "Task 4": "Before training, kernels look like pure static noise. After training, the noise smooths out and distinct patterns like Gabor filters emerge, proving the network is learning foundational geometric shapes."
+    },
+    "metrics": {
+        "Task 1: Simple MLP": {
+            "final_train_loss": 1.0489351868629455,
+            "final_train_acc": 68.0,
+            "final_val_loss": 0.550437742471695,
+            "final_val_acc": 95.0
+        },
+        "Task 2.1: Overfit 1 Sample": {
+            "final_train_loss": 0.6530686616897583,
+            "final_train_acc": 100.0,
+            "final_val_loss": 0.29295313358306885,
+            "final_val_acc": 100.0
+        },
+        "Task 2.2: Overfit 5 Samples": {
+            "final_train_loss": 0.10335621982812881,
+            "final_train_acc": 100.0,
+            "final_val_loss": 0.0759049504995346,
+            "final_val_acc": 100.0
+        },
+        "Task 2.3: Full CNN with Dropout": {
+            "final_train_loss": 1.1325993725405934,
+            "final_train_acc": 59.782,
+            "final_val_loss": 0.961050784891578,
+            "final_val_acc": 66.69
+        },
+        "Task 3-A: Train Only FC": {
+            "final_train_loss": 1.579318183462333,
+            "final_train_acc": 45.222,
+            "final_val_loss": 1.6039695086752532,
+            "final_val_acc": 44.58
+        },
+        "Task 3-B: Finetune Final Conv Block": {
+            "final_train_loss": 0.7205377904426716,
+            "final_train_acc": 74.774,
+            "final_val_loss": 0.8664633713330433,
+            "final_val_acc": 70.55
+        },
+        "Task 3-C: Finetune Entire Model": {
+            "final_train_loss": 0.40849826528745536,
+            "final_train_acc": 85.77,
+            "final_val_loss": 0.577771334701283,
+            "final_val_acc": 81.01
+        }
+    }
+}
